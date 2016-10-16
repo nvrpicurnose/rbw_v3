@@ -9,7 +9,6 @@ const rootReducer = combineReducers({
   form: formReducer,
   auth: authReducer,
   landlord: landlordReducer,
-  mapview: mapviewReducer,
   content: contentReducer
 });
 

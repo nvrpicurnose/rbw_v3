@@ -2,12 +2,29 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
 
-import { Scrollbars } from 'react-custom-scrollbars';
+import { backToPins } from '../../actions/map_actions'
 
+import { Scrollbars } from 'react-custom-scrollbars';
 import SubletCard from '../shared_ui/SubletCard'
 import LeaseCard from '../shared_ui/LeaseCard'
 
 class SearchResults extends Component {
+
+	renderBackButton(){
+		if(this.props.selectedPins){
+			return (
+				<button className='btn btn-info btn-block' onClick={this.props.backToPins}>Back</button>
+			)
+		}
+	}
+
+	renderList(){
+		if(this.props.selectedPins){
+			return this.props.selectedPins.map(this.renderCards)
+		}else{
+			return this.props.filteredResults.map(this.renderCards)
+		}
+	}
 
 	renderCards(card){
 		if(card.userid){
@@ -21,7 +38,8 @@ class SearchResults extends Component {
 		return (
 			<div id='SearchResults' style={comStyles().list}>
 				<Scrollbars>
-					{this.props.filteredResults.map(this.renderCards.bind(this))}
+					{this.renderBackButton()}
+					{this.renderList()}
 				</Scrollbars>
 			</div>
 		);
@@ -29,18 +47,20 @@ class SearchResults extends Component {
 }
 
 SearchResults.propTypes = {
-	filteredResults: React.PropTypes.array.isRequired
+	filteredResults: React.PropTypes.array.isRequired,
+	selectedPins: React.PropTypes.array.isRequired
 };
 
 const RadiumHOC = Radium(SearchResults);
 
 function mapStateToProps(state){
 	return {
-		filteredResults: state.mapview.filteredResults
+		filteredResults: state.content.filteredResults,
+		selectedPins: state.content.selectedPins
 	}
 }
 
-export default connect(mapStateToProps)(RadiumHOC);
+export default connect(mapStateToProps, {backToPins})(RadiumHOC);
 
 
 // ===============================

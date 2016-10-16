@@ -18,7 +18,7 @@ class CanvasTenant extends Component {
 					<SearchResults style={comStyles(this.props.canvasWidth).searchResults} />
 				</div>
 				<div id='mapView' style={comStyles(this.props.canvasWidth).mapView}>
-					<MapView pins={this.props.pins} />
+					<MapView />
 				</div>
 			</div>
 		);
@@ -37,7 +37,6 @@ const RadiumHOC = Radium(CanvasTenant);
 
 function mapStateToProps(state){
 	return {
-		pins: state.mapview.pins
 	}
 }
 
@@ -58,7 +57,6 @@ const comStyles = (canvasWidth) => {
 		},
 		mapView: {
 			flexGrow: flexGrow,
-			backgroundColor: "red",
 			height: "100vh",
 			display: "inline-block"
 		},

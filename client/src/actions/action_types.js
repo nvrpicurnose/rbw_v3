@@ -13,4 +13,5 @@ export const DELETE_LANDLORD_PROPERTY = "DELETE_LANDLORD_PROPERTY"
 
 // Actions related to the mapview and pins
 export const DROP_PINS = "DROP_PINS"
-export const SELECT_PIN = "SELECT_PIN"
+export const SELECT_PINS = "SELECT_PINS"
+export const BACK_TO_PINS = "BACK_TO_PINS"
