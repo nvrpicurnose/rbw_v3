@@ -21,8 +21,10 @@ class SearchResults extends Component {
 	renderList(){
 		if(this.props.selectedPins){
 			return this.props.selectedPins.map(this.renderCards)
-		}else{
+		}else if(this.props.filteredResults){
 			return this.props.filteredResults.map(this.renderCards)
+		}else{
+			return this.props.listOfResults.map(this.renderCards)
 		}
 	}
 
@@ -47,6 +49,7 @@ class SearchResults extends Component {
 }
 
 SearchResults.propTypes = {
+	listOfResults: React.PropTypes.array.isRequired,
 	filteredResults: React.PropTypes.array.isRequired,
 	selectedPins: React.PropTypes.array.isRequired
 };
@@ -55,6 +58,7 @@ const RadiumHOC = Radium(SearchResults);
 
 function mapStateToProps(state){
 	return {
+		listOfResults: state.content.listOfResults,
 		filteredResults: state.content.filteredResults,
 		selectedPins: state.content.selectedPins
 	}

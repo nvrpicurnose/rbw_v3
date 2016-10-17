@@ -192,11 +192,11 @@ export const mockMapviewState = {
 export const mockSublets= {
 	sublets: [
 		{
-			id: "3453263634",
+			_id: "3453263634",
 			posturl: "http://facebook.com",
-			address: "310 King St N, Waterloo ON",
+			address: "330 Spruce St, Waterloo ON",
 			city: "Waterloo",
-			coords: [-80.525095, 43.478867],
+			coords: [-80.526854, 43.479983],
 			price: 430,
 			rooms_left: 3,
 			ensuite_incl: false,
@@ -215,7 +215,7 @@ export const mockSublets= {
 			active: true
 		},
 		{
-			id: "34dfsg343634",
+			_id: "34dfsg343634",
 			posturl: "http://facebook.com",
 			address: "180 Albert St, Waterloo ON",
 			city: "Waterloo",
@@ -238,7 +238,7 @@ export const mockSublets= {
 			active: true
 		},
 		{
-			id: "3asdfg4fg634",
+			_id: "3asdfg4fg634",
 			posturl: "http://facebook.com",
 			address: "202 Lester St, Waterloo ON",
 			city: "Waterloo",
@@ -261,7 +261,7 @@ export const mockSublets= {
 			active: true
 		},
 		{
-			id: "34532asgdghs634",
+			_id: "34532asgdghs634",
 			posturl: "http://facebook.com",
 			address: "1 Sunview St, Waterloo ON",
 			city: "Waterloo",
