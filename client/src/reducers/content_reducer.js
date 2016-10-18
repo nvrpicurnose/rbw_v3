@@ -35,6 +35,8 @@ export default function(state = INITIAL_STATE, action){
 		case SET_VIEWMODE:
 			return {
 				...state,
+				filteredResults: null,
+				selectedPins: null,
 				viewMode: action.payload
 			}
 		case LOAD_FOR_VIEWMODE:

@@ -26,7 +26,7 @@ class SearchWidget extends Component {
 			searchString: event.target.value
 		})
 		let results = this.props.properties.filter((prop)=>{
-			if(prop.address.indexOf(this.state.searchString) >= 0 || prop.building_name.indexOf(this.state.searchString) >= 0){
+			if(prop.address.toLowerCase().indexOf(this.state.searchString.toLowerCase()) >= 0 || prop.building_name.toLowerCase().indexOf(this.state.searchString.toLowerCase()) >= 0){
 				return prop
 			}
 		})

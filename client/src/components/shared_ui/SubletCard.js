@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
+import moment from 'moment'
 
 import {sortIconsSublet} from '../../api/iconSorter'
 import {panToMap} from '../../actions/map_actions'
@@ -8,6 +9,11 @@ import {panToMap} from '../../actions/map_actions'
 import { xGreyText } from '../../stylesJS/base_colors'
 
 class SubletCard extends Component {
+
+	shortenedAddress(){
+		const comma = this.props.sublet.address.indexOf(',')
+		return this.props.sublet.address.slice(0, comma)
+	}
 
 	render() {
 		return (
@@ -22,14 +28,13 @@ class SubletCard extends Component {
 					<div id='infobadge' style={comStyles().infobadge}>
 						{/* Address */}
 						<div style={comStyles().address}>
-							{this.props.sublet.address}
+							{this.shortenedAddress()}
 						</div>
 						{/* User Name */}
 						<div style={comStyles().userinfo}>
-							Posted by &nbsp;
 							<a href={this.props.sublet.userurl} target="_blank">{this.props.sublet.username}</a> &nbsp;
 							on &nbsp;
-							<b>{this.props.sublet.username}</b>
+							<b>{moment(this.props.sublet.updated_at).format("MMM Do")}</b>
 						</div>
 					</div>
 				</div>
@@ -91,7 +96,7 @@ const comStyles = () => {
 			margin: "1% 1% 1% 3%",
 		},
 		address: {
-			fontSize:"2.1rem",
+			fontSize:"2.2rem",
 			fontWeight:"bold",
 			width: "100%",
 			height:"60%",

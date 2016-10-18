@@ -55,8 +55,9 @@ export function filterStringSearch(searchString, listofResults){
 	return function(dispatch){
 		const filteredResults = listofResults.filter((pin)=>{
 			if(pin.building_name){
-				return pin.address.indexOf(searchString) >= 0 || pin.building_name.indexOf(searchString)
+				return pin.building_name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0 || pin.address.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
 			}else{
+				console.log("Searching for address")
 				return pin.address.indexOf(searchString) >= 0
 			}
 		})
