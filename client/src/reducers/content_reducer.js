@@ -1,4 +1,4 @@
-import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_SUBLETS, LOAD_LEASES, LOAD_BOTH } from '../actions/action_types'
+import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_SUBLETS, LOAD_LEASES, LOAD_BOTH, STRING_FILTER, PAN_TO } from '../actions/action_types'
 import {mockLandlordState, mockSublets} from '../mock/landlord_state'
 
 const INITIAL_STATE = {
@@ -6,9 +6,9 @@ const INITIAL_STATE = {
 	leases: mockLandlordState.properties,					// all leases
 	listOfResults: null,								// list of properties to show, depending on viewMode (sublet, leases, both)
 	filteredResults: null,							// filtered list derived from listOfResults
-	filteredPins: null,								// google map pins matching the filteredResults or listOfResults (in that order of priority)
 	selectedPins: null,								// when a pin is selected, show this array of matching locations
-	viewMode: "sublet"				// options include = ["sublet", "lease", "both"]
+	panTo: null, 					// a pin to pan to when a card's map button is clicked
+	viewMode: "lease"				// options include = ["sublet", "lease", "both"]
 }
 
 export default function(state = INITIAL_STATE, action){
@@ -41,6 +41,16 @@ export default function(state = INITIAL_STATE, action){
 			return {
 				...state,
 				listOfResults: action.payload
+			}
+		case STRING_FILTER:
+			return {
+				...state,
+				filteredResults: action.payload
+			}
+		case PAN_TO:
+			return {
+				...state,
+				panTo: action.payload
 			}
 	}
 	return state;

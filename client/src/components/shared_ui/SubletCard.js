@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
 
-import {sortIcons} from '../../api/iconSorter'
+import {sortIconsSublet} from '../../api/iconSorter'
+import {panToMap} from '../../actions/map_actions'
 
 import { xGreyText } from '../../stylesJS/base_colors'
 
@@ -14,8 +15,10 @@ class SubletCard extends Component {
 
 				<div id='infobar' style={comStyles().infobar}>
 					{/* Profile Picture */}
-					<div className='img-circle' style={profileStyle(this.props.sublet.userpic).profilePic}></div>
-					
+					<a href={this.props.sublet.userurl} target='_blank'>
+						<div className='img-circle' style={profileStyle(this.props.sublet.userpic).profilePic}></div>
+					</a>
+
 					<div id='infobadge' style={comStyles().infobadge}>
 						{/* Address */}
 						<div style={comStyles().address}>
@@ -24,7 +27,7 @@ class SubletCard extends Component {
 						{/* User Name */}
 						<div style={comStyles().userinfo}>
 							Posted by &nbsp;
-							<a href={this.props.sublet.userurl}>{this.props.sublet.username}</a> &nbsp;
+							<a href={this.props.sublet.userurl} target="_blank">{this.props.sublet.username}</a> &nbsp;
 							on &nbsp;
 							<b>{this.props.sublet.username}</b>
 						</div>
@@ -38,15 +41,17 @@ class SubletCard extends Component {
 				
 				{/* Icons */}
 				<div id='iconbar' style={comStyles().iconbar}>
-					{sortIcons(this.props.sublet)}
+					{sortIconsSublet(this.props.sublet)}
 				</div>
 
 				{/* Buttons Bar */}
 				<div id='buttonsBar' style={comStyles().buttonsBar}>
-					<button className="btn btn-info" style={comStyles().seeOriginal}>See Original</button>
-					<button className="btn btn-danger" style={comStyles().map}>
-						<i className='ion-ios-location' style='font-size:1em;'></i>
-						&nbsp; Map
+					<a href={this.props.sublet.posturl} target='_blank' style={comStyles().seeOriginalAhref}>
+						<button className="btn btn-info" style={comStyles().seeOriginal}>See Original</button>
+					</a>
+					<button className="btn btn-danger" onClick={()=>{this.props.panToMap(this.props.sublet)}} style={comStyles().map}>
+						<i className='ion-ios-location' style='font-size:1em;'></i> &nbsp;
+						Map
 					</button>
 				</div>
 			</div>
@@ -60,7 +65,7 @@ SubletCard.propTypes = {
 
 const RadiumHOC = Radium(SubletCard);
 
-export default connect()(RadiumHOC);
+export default connect(null, {panToMap})(RadiumHOC);
 
 
 // ==============================
@@ -122,9 +127,12 @@ const comStyles = () => {
 			fontSize: "1rem",
 			fontWeight: "bold"
 		},
+		seeOriginalAhref: {
+			flexGrow: 3
+		},
 		seeOriginal: {
 			borderRadius: "0px",
-			flexGrow: 3
+			width: "100%"
 		},
 		map: {
 			borderRadius: "0px",

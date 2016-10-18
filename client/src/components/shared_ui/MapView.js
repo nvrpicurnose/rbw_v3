@@ -28,6 +28,13 @@ class MapView extends Component {
 			this.recolorRed()
 		}
 	    this.loadResults()
+	    if(this.props.panTo){
+	    	for(let p = 0; p<this.pins.length; p++){
+	    		if(this.pins[p].cardId == this.props.panTo._id){
+	    			this.highlightPin(this.pins[p])
+	    		}
+	    	}
+	    }
 	}
 
 	mountGoogleMap(){
@@ -62,7 +69,8 @@ class MapView extends Component {
                   //map: self.state.mapview,
                   icon: "../../../res/images/orange-dot.png",
                   prop_type: "Apartment"
-              });
+              })
+              marker.cardId = n._id
             }else{
               // otherwise create a regular marker for each pin
               marker = new google.maps.Marker({
@@ -70,6 +78,7 @@ class MapView extends Component {
                   //map: self.state.mapview,
                   icon: "../../../res/images/red-dot.png"
               });
+              marker.cardId = n._id
             }
             // action on click of pin
             google.maps.event.addListener(marker, 'click', function(e){
@@ -98,7 +107,6 @@ class MapView extends Component {
 		// and color the desired marker blue
 	    for(let m = 0; m<this.pins.length; m++){
 	        if(this.pins[m] == marker){
-	          console.log("Found it!")
 	          this.pins[m].setIcon("../../../res/images/blue-dot.png")
 	        }
 	    }
@@ -128,7 +136,7 @@ class MapView extends Component {
 	render() {
 		return (
 			<div id="mapview" style={comStyles().mapview}></div>
-		);
+		)
 	}
 }
 
@@ -136,7 +144,8 @@ MapView.propTypes = {
 	listOfResults: React.PropTypes.array.isRequired,
 	filteredResults: React.PropTypes.array,
 	filteredPins: React.PropTypes.array,
-	selectedPins: React.PropTypes.array
+	selectedPins: React.PropTypes.array,
+	panTo: React.PropTypes.object
 }
 
 const RadiumHOC = Radium(MapView)
@@ -146,7 +155,8 @@ function mapStateToProps(state){
 		listOfResults: state.content.listOfResults,
 		filteredResults: state.content.filteredResults,
 		filteredPins: state.content.filteredPins,
-		selectedPins: state.content.selectedPins
+		selectedPins: state.content.selectedPins,
+		panTo: state.content.panTo
 	}
 }
 

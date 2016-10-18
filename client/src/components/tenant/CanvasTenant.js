@@ -9,6 +9,8 @@ import MapView from '../shared_ui/MapView'
 import Search from './Search'
 import SearchResults from './SearchResults'
 import ViewModeBar from './ViewModeBar'
+import Popup from '../shared_ui/Popup'
+import PopupImage from '../shared_ui/PopupImage'
 
 class CanvasTenant extends Component {
 
@@ -30,6 +32,22 @@ class CanvasTenant extends Component {
 		}
 	}
 
+	renderPopup(){
+		if(this.props.popupToggle){
+			return (
+				<Popup />
+			)
+		}
+	}
+
+	renderPopupImage(){
+		if(this.props.imgToggle){
+			return(
+				<PopupImage />
+			)
+		}
+	}
+
 	render() {
 		return (
 			<div id='canvas' style={comStyles(this.props.canvasWidth).canvas}>
@@ -39,6 +57,9 @@ class CanvasTenant extends Component {
 				</div>
 				<div id='mapView' style={comStyles(this.props.canvasWidth).mapView}>
 					<ViewModeBar style={comStyles().ViewModeBar}/>
+					<img src='../../../res/images/rentburrow_logo.png' style={comStyles().RentBurrowLogo} />
+					{this.renderPopup()}
+					{this.renderPopupImage()}
 					<MapView />
 				</div>
 			</div>
@@ -50,11 +71,13 @@ CanvasTenant.propTypes = {
 	canvasWidth: React.PropTypes.number.isRequired,
 	sublets: React.PropTypes.array,
 	leases: React.PropTypes.array,
-	viewMode: React.PropTypes.string.isRequired
+	viewMode: React.PropTypes.string.isRequired,
+	popupToggle: React.PropTypes.string.isRequired,
+	imgToggle: React.PropTypes.bool.isRequired
 };
 
 CanvasTenant.defaultProps = {
-  canvasWidth: 25
+  canvasWidth: 15
 };
 
 const RadiumHOC = Radium(CanvasTenant);
@@ -63,7 +86,9 @@ function mapStateToProps(state){
 	return {
 		viewMode: state.content.viewMode,
 		sublets: state.content.sublets,
-		leases: state.content.leases
+		leases: state.content.leases,
+		popupToggle: state.popup.toggle,
+		imgToggle: state.popup.imgForPopup
 	}
 }
 
@@ -88,13 +113,13 @@ const comStyles = (canvasWidth) => {
 			display: "inline-block",
 			position: "relative"
 		},
-		ViewModeBar: {
-			marginLeft: "100px",
-			border: "3px solid red"
-			/*zIndex: "10",
+		RentBurrowLogo: {
+			height:"150px",
+			width: "auto",
 			position: "absolute",
-			right: "20px",
-			top: "20px"*/
+			right: "60px",
+			bottom: "20px",
+			zIndex: 9
 		},
 		canvas: {
 			display: "flex",

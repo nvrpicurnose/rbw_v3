@@ -7,11 +7,23 @@ import {xMidBlue, xDeepBlue} from '../../stylesJS/base_colors'
 
 class ViewModeBar extends Component {
 
+	renderIcon(mode){
+		if(this.props.viewMode == mode){
+			return <img src='../../../res/images/red-dot.png' style={comStyles().icon} />
+		}
+	}
+
 	render() {
 		return (
-			<div>
-				<button className='btn' style={comStyles(this.props.viewMode).sublet} onClick={()=>this.props.setViewMode("sublet")}>SUBLETS</button>
-				<button className='btn' style={comStyles(this.props.viewMode).lease} onClick={()=>this.props.setViewMode("lease")}>LEASES</button>
+			<div style={comStyles().ViewModeBar}>
+				<button className='btn' style={comStyles(this.props.viewMode).sublet} onClick={()=>this.props.setViewMode("sublet")}>
+					{this.renderIcon('sublet')} &nbsp;
+					SUBLETS
+				</button>
+				<button className='btn' style={comStyles(this.props.viewMode).lease} onClick={()=>this.props.setViewMode("lease")}>
+					{this.renderIcon('lease')} &nbsp;
+					LEASES
+				</button>
 			</div>
 		);
 	}
@@ -48,21 +60,35 @@ const comStyles = (viewMode) => {
 		leaseColor = xDeepBlue
 	}
 	return {
+		ViewModeBar: {
+			zIndex: "10",
+			position: "absolute",
+			width: "auto",
+			right: "20px",
+			top: "20px"
+		},
 		sublet: {
 			backgroundColor: subletColor,
 			borderRadius: "0px",
-			width: "10%",
+			width: "12%",
+			minWidth: "120px",
 			fontSize: "1.2rem",
 			fontWeight: "bold",
-			color: "white"
+			color: "white",
 		},
 		lease: {
 			backgroundColor: leaseColor,
 			borderRadius: "0px",
-			width: "10%",
+			width: "12%",
+			minWidth: "120px",
 			fontSize: "1.2rem",
 			fontWeight: "bold",
-			color: "white"
+			color: "white",
+		},
+		icon: {
+			display:"inline-block",
+			height:"15px",
+			width:"auto",
 		}
 	}
 }

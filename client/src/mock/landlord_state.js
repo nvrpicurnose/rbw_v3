@@ -14,21 +14,37 @@ export const mockLandlordState = {
 			company: "Domus Student Housing",
 			type: "Low-rise",
 			rooms: [{
-				room_type: "Standard", 
-				reg_price: 450, 
+				room_type: "Floor 1", 
+				reg_price: 600, 
+				promo_price: 560,
 				rooms_per: 5, 
 				lease_terms: 12, 
+				promo_terms: 12,
 				bathrooms: 5,
-				note: "Well rounded student housing"
-			}],
-			promos: [{
-				room_type: "Standard", 
-				reg_price: 450, 
-				sale_price: 400, 
+				note: "Well rounded student housing",
+				promo: true
+			},
+			{
+				room_type: "Floor 2-6", 
+				reg_price: 625, 
+				promo_price: 560,
 				rooms_per: 5, 
 				lease_terms: 12, 
+				promo_terms: 12,
 				bathrooms: 5,
-				note: "With 1 month free"
+				note: "Well rounded student housing",
+				promo: true
+			},
+			{
+				room_type: "Penthouse", 
+				reg_price: 700, 
+				promo_price: 650,
+				rooms_per: 5, 
+				lease_terms: 12, 
+				promo_terms: 12,
+				bathrooms: 5,
+				note: "Well rounded student housing",
+				promo: true
 			}],
 			utils_list: {
 				water: true,
@@ -59,7 +75,7 @@ export const mockLandlordState = {
 				email: "Ann.Wylder@domus.com", 
 				phone: "519-345-2345"
 			}],
-			notes: ["Near UW and WLU. Close to food and bus stops."],
+			note: "Near UW and WLU. Close to food and bus stops.",
 			active: true,
 			status: "Online",
 			created_at: new Date()
@@ -72,21 +88,26 @@ export const mockLandlordState = {
 			company: "Domus Student Housing",
 			type: "House",
 			rooms: [{
-				room_type: "Standard", 
-				reg_price: 400, 
+				room_type: "Main Floor", 
+				reg_price: 450, 
+				promo_price: 420,
 				rooms_per: 5, 
 				lease_terms: 12, 
+				promo_terms: 12,
 				bathrooms: 2,
-				note: "Well rounded student housing"
-			}],
-			promos: [{
-				room_type: "Standard", 
-				reg_price: 400, 
-				sale_price: 350, 
+				note: "Well rounded student housing",
+				promo: true
+			},
+			{
+				room_type: "Basement", 
+				reg_price: 430, 
+				promo_price: 400,
 				rooms_per: 5, 
 				lease_terms: 12, 
+				promo_terms: 12,
 				bathrooms: 2,
-				note: "With 1 month free"
+				note: "Well rounded student housing",
+				promo: true
 			}],
 			utils_list: {
 				water: true,
@@ -116,7 +137,7 @@ export const mockLandlordState = {
 				email: "Ann.Wylder@domus.com", 
 				phone: "519-345-2345"
 			}],
-			notes: ["Near UW and WLU. Close to food and bus stops."],
+			note: "Near UW and WLU. Close to food and bus stops.",
 			active: true,
 			status: "Online",
 			created_at: new Date()
@@ -131,19 +152,13 @@ export const mockLandlordState = {
 			rooms: [{
 				room_type: "Standard", 
 				reg_price: 450, 
+				promo_price: 400, 
 				rooms_per: 5, 
 				lease_terms: 12, 
+				promo_terms: 12,
 				bathrooms: 5,
-				note: "Well rounded student housing"
-			}],
-			promos: [{
-				room_type: "Standard", 
-				reg_price: 450, 
-				sale_price: 400, 
-				rooms_per: 5, 
-				lease_terms: 12, 
-				bathrooms: 5,
-				note: "With 1 month free"
+				note: "Well rounded student housing",
+				promo: false
 			}],
 			utils_list: {
 				water: true,
@@ -173,7 +188,7 @@ export const mockLandlordState = {
 				email: "Ann.Wylder@domus.com", 
 				phone: "519-345-2345"
 			}],
-			notes: ["Near UW and WLU. Close to food and bus stops."],
+			note: "Near UW and WLU. Close to food and bus stops.",
 			active: true,
 			status: "Online",
 			created_at: new Date()

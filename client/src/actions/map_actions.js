@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE } from './action_types';
+import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, STRING_FILTER, PAN_TO } from './action_types';
 
 const API_URL = 'http://localhost:3090';
 
@@ -47,6 +47,31 @@ export function loadForViewMode(list){
 		dispatch({
 			type: LOAD_FOR_VIEWMODE,
 			payload: list
+		})
+	}
+}
+
+export function filterStringSearch(searchString, listofResults){
+	return function(dispatch){
+		const filteredResults = listofResults.filter((pin)=>{
+			if(pin.building_name){
+				return pin.address.indexOf(searchString) >= 0 || pin.building_name.indexOf(searchString)
+			}else{
+				return pin.address.indexOf(searchString) >= 0
+			}
+		})
+		dispatch({
+			type: STRING_FILTER,
+			payload: filteredResults
+		})
+	}
+}
+
+export function panToMap(card){
+	return function(dispatch){
+		dispatch({
+			type: PAN_TO,
+			payload: card
 		})
 	}
 }

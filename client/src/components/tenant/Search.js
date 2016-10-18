@@ -4,6 +4,7 @@ import Radium from 'radium'
 import {Glyphicon} from 'react-bootstrap'
 
 import {xMidBlue} from '../../stylesJS/base_colors'
+import {filterStringSearch} from '../../actions/map_actions'
 
 import SearchAdvanced from './SearchAdvanced'
 
@@ -21,6 +22,7 @@ class Search extends Component {
 		this.setState({
 			searchString: event.target.value
 		})
+		this.props.filterStringSearch(event.target.value, this.props.listOfResults)
 	}
 
 	triggerAdvanced(){
@@ -51,11 +53,18 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+	listOfResults: React.PropTypes.array.isRequired
 };
 
 const RadiumHOC = Radium(Search);
 
-export default connect()(RadiumHOC);
+function mapStateToProps(state){
+	return {
+		listOfResults: state.content.listOfResults
+	}
+}
+
+export default connect(mapStateToProps, {filterStringSearch})(RadiumHOC);
 
 // =======================
 

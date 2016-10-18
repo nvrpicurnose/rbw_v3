@@ -12,19 +12,13 @@ var LeaseSchema = new mongoose.Schema({
 	rooms: [{
 		room_type: String, 
 		reg_price: Number, 
+		promo_price: Number, 
 		rooms_per: Number, 
 		lease_terms: Number, 
+		promo_terms: Number,
 		bathrooms: Number,
-		note: String
-	}],
-	promos: [{
-		room_type: String, 
-		reg_price: Number, 
-		sale_price: Number, 
-		rooms_per: Number, 
-		lease_terms: Number, 
-		bathrooms: Number,
-		note: String
+		note: String,
+		promo: Boolean
 	}],
 	utils_list: {
 		water: Boolean,
@@ -46,7 +40,7 @@ var LeaseSchema = new mongoose.Schema({
 		email: String, 
 		phone: String
 	}],
-	notes: [String],
+	note: String,
 	active: Boolean,
 	status: String,
 	created_at: Date

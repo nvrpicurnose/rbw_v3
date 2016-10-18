@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import { backToPins } from '../../actions/map_actions'
 
-import { Scrollbars } from 'react-custom-scrollbars';
 import SubletCard from '../shared_ui/SubletCard'
 import LeaseCard from '../shared_ui/LeaseCard'
 
