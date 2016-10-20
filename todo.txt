@@ -1,0 +1,38 @@
+
+
+TENANT DASHBOARD:
+------------------------
+ - Add scrolling function to lease card photos
+ - Color selected pin blue
+ - Advanced search
+ - Setup Facebook sync with server
+
+
+
+LANDLORD DASHBOARD:
+------------------------
+	CREATE PROPERTY
+	--------------------------
+	 - Set up AWS S3 and return to client the http url to linked images
+	 - Create a property form + live display
+
+	VIEW ANALYTICS
+	--------------------------
+	 - Track metrics in db
+	 - Visualize data per property 
+
+
+
+SERVER TASKS
+------------------------
+ - Update node.js to version 6.8
+ 
+	EMAIL FORWARD
+	--------------------------
+	 - Create email template
+	 - Email sending server
+
+	SUBLET STRING PARSING
+	--------------------------
+	 - Refactor old code 
+	 - Setup sync with client

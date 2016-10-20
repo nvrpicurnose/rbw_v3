@@ -7,12 +7,11 @@ const LeaseCheck = require('../api/legacy_apis/newlease-checker.js');
 // ======================================================================================================
 
 exports.get_leases = function(req, res, next){
-	const city_name = req.body.city.city_name;
-	//const province = req.body.city.province;
-	//const country = req.body.city.country;
+	const city_name = req.body.city
+	const City = city_name.slice(0,1).toUpperCase() + city_name.slice(1)
 
 	// find leases with matching cities
-	Lease.find({city_name: city_name}, function(err, leases){
+	Lease.find({$and: [{city_name: City}, {active: true}]}, function(err, leases){
 		if(err){console.log(err)};
 		//console.log(leases);
 		// return the matching Leases
@@ -21,7 +20,7 @@ exports.get_leases = function(req, res, next){
 		}else{
 			res.json(null);
 		}
-	});
+	})
 }
 
 // ====================================================================================================== //

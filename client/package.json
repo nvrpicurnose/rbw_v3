@@ -28,6 +28,7 @@
   "dependencies": {
     "axios": "^0.14.0",
     "babel-preset-stage-1": "^6.1.18",
+    "fb": "1.0.2",
     "lodash": "^3.10.1",
     "moment": "^2.15.1",
     "nodemon": "^1.10.2",

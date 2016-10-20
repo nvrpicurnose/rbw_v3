@@ -20,18 +20,23 @@ class SearchResults extends Component {
 
 	renderList(){
 		if(this.props.selectedPins){
+			console.log("SelectedPins")
 			return this.props.selectedPins.map(this.renderCards)
 		}else if(this.props.filteredResults){
+			console.log("filteredResults")
 			return this.props.filteredResults.map(this.renderCards)
 		}else{
+			console.log("listOfResults")
 			return this.props.listOfResults.map(this.renderCards)
 		}
 	}
 
 	renderCards(card){
 		if(card.userid){
+			console.log(card.userid)
 			return (<SubletCard key={card._id} sublet={card} />)
 		}else if(card.company){
+			console.log(card.company)
 			return (<LeaseCard key={card._id} lease={card} />)
 		}
 	}
@@ -39,10 +44,10 @@ class SearchResults extends Component {
 	render() {
 		return (
 			<div id='SearchResults' style={comStyles().list}>
-				<Scrollbars>
-					{this.renderBackButton()}
+				{this.renderBackButton()}
+				<div style={comStyles().scroll}>
 					{this.renderList()}
-				</Scrollbars>
+				</div>
 			</div>
 		);
 	}
@@ -50,8 +55,8 @@ class SearchResults extends Component {
 
 SearchResults.propTypes = {
 	listOfResults: React.PropTypes.array.isRequired,
-	filteredResults: React.PropTypes.array.isRequired,
-	selectedPins: React.PropTypes.array.isRequired
+	filteredResults: React.PropTypes.array,
+	selectedPins: React.PropTypes.array
 };
 
 const RadiumHOC = Radium(SearchResults);
@@ -74,7 +79,11 @@ const comStyles = () => {
 		list: {
 			width: "100%",
 			height: "100%",
-			padding: "0px 0px 60px 0px",
+		},
+		scroll: {
+			overflowY: "scroll",
+			height: "90vh",
+			margin: "15px 0px 15px 0px"
 		}
 	}
 }

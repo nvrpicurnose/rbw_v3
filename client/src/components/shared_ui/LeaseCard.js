@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
-import { Scrollbars } from 'react-custom-scrollbars';
+import {Glyphicon} from 'react-bootstrap'
 
 import {sortIconsLease} from '../../api/iconSorter'
 import {panToMap} from '../../actions/map_actions'
@@ -30,7 +30,7 @@ class LeaseCard extends Component {
 	renderThumbnails(lease){
 		return lease.images.map((img)=>{
 			return (
-				<img src={img} onMouseOver={()=>{this.props.popupImage(img)}} onMouseOut={this.props.popupImageExit} width="100%;" height="100%" style={comStyles().thumbImg} />
+				<img ref={img} src={img} onMouseOver={()=>{this.props.popupImage(img)}} onMouseOut={this.props.popupImageExit} width="100%;" height="100%" style={comStyles().thumbImg} />
 			)
 		})
 	}
@@ -58,7 +58,6 @@ class LeaseCard extends Component {
 
 	exitPopupIfNoContact(){
 		if(!this.props.contactToggle){
-			console.log("Got through because contactToggle is " + this.props.contactToggle)
 			this.props.exitPopup()
 		}
 	}
@@ -99,7 +98,7 @@ class LeaseCard extends Component {
 				<div style={comStyles().columnBox}>
 						<div ref='infoCol' className='col-md-8' style={comStyles().infoCol}>
 							<button className='btn btn-primary' style={comStyles().detailsHover} onMouseOver={()=>{this.props.triggerLeasePopup(this.props.lease)}} onMouseOut={this.exitPopupIfNoContact.bind(this)}>
-								<i class='ion-information-circled'></i> &nbsp;
+								<Glyphicon glyph="glyphicon glyphicon-info-sign" /> &nbsp;
 								DETAILS
 							</button>
 							{this.renderRoomHovers(this.props.lease)}
@@ -115,7 +114,7 @@ class LeaseCard extends Component {
 
 LeaseCard.propTypes = {
 	lease: React.PropTypes.object.isRequired,
-	contactToggle: React.PropTypes.bool.isRequired
+	contactToggle: React.PropTypes.bool
 };
 
 const RadiumHOC = Radium(LeaseCard);
@@ -196,7 +195,7 @@ const comStyles = () => {
 			padding: "0px",
 		},
 		infoCol: {
-			height: "500px",
+			height: "400px",
 			padding: "0px",
 			display: "flex",
 			justifyContent: "center",
@@ -217,7 +216,8 @@ const comStyles = () => {
 		roomHover: {
 			margin: "5px",
 			padding: "5px",
-			flexGrow: 1
+			flexGrow: 1,
+			cursor: "default"
 		},
 		roomHoverName: {
 			textAlign: "center",
@@ -249,15 +249,13 @@ const profileStyle = (src) => {
 }
 
 const matchedHeights = (match) => {
-	console.log(match)
-
 	return {
 		imageCol: {
 			display: "flex",
 			justifyContent: "center",
 			flexDirection: "column",
 			padding: "0px",
-			overflow: "hidden",
+			overflow: "scroll",
 			maxHeight: match+"px"
 		}
 	}

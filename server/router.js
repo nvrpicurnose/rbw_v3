@@ -48,7 +48,7 @@ module.exports = function(app){
 	app.get('/get_cities', City.get_cities)
 
 	// Group related routes
-	app.get('/city_groups', Group.city_groups)
+	app.post('/city_groups', Group.city_groups)
 	app.get('/rentburrow_group', Group.rentburrow_group)
 
 	// Watchlist related routes

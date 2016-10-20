@@ -1,5 +1,11 @@
 import { AUTH_LANDLORD, UNAUTH_LANDLORD, AUTH_ERROR, FETCH_MESSAGE } from '../actions/action_types';
 
+const INITIAL_STATE = {
+	authenticated: false,
+	error: null,
+	message: null
+}
+
 export default function(state = {}, action){
 	switch(action.type){
 		case AUTH_LANDLORD:

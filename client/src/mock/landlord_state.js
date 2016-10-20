@@ -218,7 +218,7 @@ export const mockSublets= {
 			utils_incl: true,
 			phone: "519-556-8656",
 			female_only: false,
-			pet: false,
+			semester: "winter",
 			message: "Looking for a sublet for Winter term...",
 			updated_time: new Date(),
 			userid: "2adga3423sg42",
@@ -241,7 +241,7 @@ export const mockSublets= {
 			utils_incl: false,
 			phone: "519-556-8656",
 			female_only: false,
-			pet: false,
+			semester: "fall",
 			message: "Looking for a sublet for Winter term...",
 			updated_time: new Date(),
 			userid: "2adga3423sg42",
@@ -264,7 +264,7 @@ export const mockSublets= {
 			utils_incl: false,
 			phone: "",
 			female_only: true,
-			pet: false,
+			semester: "summer",
 			message: "Looking for a sublet for Winter term...",
 			updated_time: new Date(),
 			userid: "2adga3423sg42",
@@ -287,7 +287,7 @@ export const mockSublets= {
 			utils_incl: true,
 			phone: "",
 			female_only: false,
-			pet: false,
+			semester: null,
 			message: "Looking for a sublet for Winter term...",
 			updated_time: new Date(),
 			userid: "2adga3423sg42",
@@ -299,4 +299,14 @@ export const mockSublets= {
 			active: true
 		},
 	]
+}
+
+export const mockTenantState = {
+	tenant: {
+		id: "09sisdhfg83sf",
+		name: "Kangze Huang",
+		city: "Waterloo",
+		coords: [-80.532860, 43.473306],
+	},
+	city: "Waterloo"
 }

@@ -5,14 +5,15 @@ import Header from './misc/header';
 import { xMidBlue } from '../stylesJS/base_colors'
 
 export default class App extends Component {
-  render() {
-    return (
-      <div style={comStyles().app}>
-      	{/*<Header />*/}
-      	{this.props.children}
-      </div>
-    );
-  }
+
+  	render() {
+    	return (
+      		<div style={comStyles().app}>
+      			{/*<Header />*/}
+      			{this.props.children}
+      		</div>
+    	)
+  	}
 }
 
 const RadiumHOC = Radium(App);

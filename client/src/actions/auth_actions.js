@@ -69,19 +69,6 @@ export function fetchMessage(){
 	}
 }
 
-/*
-	// redux-promise version of fetchMessage()
-	export function fetchMessage(){
-		const request = axios.get(API_URL, {
-			headers: {authorization: localStorage.getItem('token')}
-		});
-		return {
-			type: FETCH_MESSAGE,
-			payload: request
-		}
-	}
-*/
-
 export function authError(error){
 	return {
 		type: AUTH_ERROR,

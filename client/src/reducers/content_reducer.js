@@ -1,9 +1,9 @@
-import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_SUBLETS, LOAD_LEASES, LOAD_BOTH, STRING_FILTER, PAN_TO } from '../actions/action_types'
+import { GET_SUBLETS_FROM_DB, GET_LEASES_FROM_DB, DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_BOTH, STRING_FILTER, PAN_TO } from '../actions/action_types'
 import {mockLandlordState, mockSublets} from '../mock/landlord_state'
 
 const INITIAL_STATE = {
-	sublets: mockSublets.sublets,			// all sublets
-	leases: mockLandlordState.properties,					// all leases
+	sublets: [],			// all sublets
+	leases: [],					// all leases
 	listOfResults: null,								// list of properties to show, depending on viewMode (sublet, leases, both)
 	filteredResults: null,							// filtered list derived from listOfResults
 	selectedPins: null,								// when a pin is selected, show this array of matching locations
@@ -13,10 +13,16 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action){
 	switch(action.type){
-		case LOAD_SUBLETS:
-			return state
-		case LOAD_LEASES:
-			return state
+		case GET_SUBLETS_FROM_DB:
+			return {
+				...state,
+				sublets: action.payload
+			}
+		case GET_LEASES_FROM_DB:
+			return {
+				...state,
+				leases: action.payload
+			}
 		case DROP_PINS:
 			return {
 				...state,
@@ -47,7 +53,8 @@ export default function(state = INITIAL_STATE, action){
 		case STRING_FILTER:
 			return {
 				...state,
-				filteredResults: action.payload
+				filteredResults: action.payload,
+				selectedPins: null
 			}
 		case PAN_TO:
 			return {

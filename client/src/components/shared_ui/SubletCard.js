@@ -51,6 +51,7 @@ class SubletCard extends Component {
 
 				{/* Buttons Bar */}
 				<div id='buttonsBar' style={comStyles().buttonsBar}>
+				{console.log(this.props.sublet.posturl)}
 					<a href={this.props.sublet.posturl} target='_blank' style={comStyles().seeOriginalAhref}>
 						<button className="btn btn-info" style={comStyles().seeOriginal}>See Original</button>
 					</a>

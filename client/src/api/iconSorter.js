@@ -42,11 +42,11 @@ export const sortIconsSublet = (sublet) => {
 			</div>
 		)
 	}
-	if(sublet.pet){
+	if(sublet.semester){
 		iconArray.push(
 			<div style={iconStyle}>
-				<i className='ion-ios-paw'></i> &nbsp;
-				Pet Friendly
+				<i className='ion-calendar'></i> &nbsp;
+				{sublet.semester.charAt(0).toUpperCase() + sublet.semester.slice(1)}
 			</div>
 		)
 	}

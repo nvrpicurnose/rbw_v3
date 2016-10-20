@@ -15,7 +15,7 @@ var SubletSchema = new mongoose.Schema({
 	utils_incl: Boolean,
 	phone: String,
 	female_only: Boolean,
-	pet: Boolean,
+	semester: String,
 	message: String,
 	updated_time: Date,
 	userid: String,
