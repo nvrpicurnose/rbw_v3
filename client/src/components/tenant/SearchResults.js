@@ -33,10 +33,8 @@ class SearchResults extends Component {
 
 	renderCards(card){
 		if(card.userid){
-			console.log(card.userid)
 			return (<SubletCard key={card._id} sublet={card} />)
 		}else if(card.company){
-			console.log(card.company)
 			return (<LeaseCard key={card._id} lease={card} />)
 		}
 	}

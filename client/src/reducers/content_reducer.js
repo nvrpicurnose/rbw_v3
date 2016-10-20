@@ -1,4 +1,4 @@
-import { GET_SUBLETS_FROM_DB, GET_LEASES_FROM_DB, DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_BOTH, STRING_FILTER, PAN_TO } from '../actions/action_types'
+import { GET_SUBLETS_FROM_DB, GET_LEASES_FROM_DB, DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, LOAD_BOTH, STRING_FILTER, PAN_TO, TOGGLE_ADVANCED_SEARCH } from '../actions/action_types'
 import {mockLandlordState, mockSublets} from '../mock/landlord_state'
 
 const INITIAL_STATE = {
@@ -8,7 +8,8 @@ const INITIAL_STATE = {
 	filteredResults: null,							// filtered list derived from listOfResults
 	selectedPins: null,								// when a pin is selected, show this array of matching locations
 	panTo: null, 					// a pin to pan to when a card's map button is clicked
-	viewMode: "lease"				// options include = ["sublet", "lease", "both"]
+	viewMode: "sublet",				// options include = ["sublet", "lease", "both"]
+	advancedSearchToggle: false
 }
 
 export default function(state = INITIAL_STATE, action){
@@ -43,7 +44,8 @@ export default function(state = INITIAL_STATE, action){
 				...state,
 				filteredResults: null,
 				selectedPins: null,
-				viewMode: action.payload
+				viewMode: action.payload,
+				advancedSearchToggle: false
 			}
 		case LOAD_FOR_VIEWMODE:
 			return {
@@ -60,6 +62,11 @@ export default function(state = INITIAL_STATE, action){
 			return {
 				...state,
 				panTo: action.payload
+			}
+		case TOGGLE_ADVANCED_SEARCH:
+			return {
+				...state,
+				advancedSearchToggle: !state.advancedSearchToggle
 			}
 	}
 	return state;

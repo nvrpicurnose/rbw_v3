@@ -4,21 +4,30 @@ import Radium from 'radium'
 
 class PopupSublet extends Component {
 
-	render() {
+	render() {						
 		return (
 			<div style={comStyles().popupSublet}>
-				Pop-up Sublet
+				<div style={comStyles().textDiv}>
+					<p style={comStyles().text}>{this.props.subletForPopup.message}</p>
+				</div>
 			</div>
 		);
 	}
 }
 
 PopupSublet.propTypes = {
+	subletForPopup: React.PropTypes.object.isRequired
 };
 
 const RadiumHOC = Radium(PopupSublet);
 
-export default connect()(RadiumHOC);
+function mapStateToProps(state){
+	return {
+		subletForPopup: state.popup.subletForPopup
+	}
+}
+
+export default connect(mapStateToProps)(RadiumHOC);
 
 
 // ======================
@@ -26,7 +35,21 @@ export default connect()(RadiumHOC);
 const comStyles = () => {
 	return {
 		popupSublet: {
-			display: "inline-block"
+			display: "flex",
+			margin: "20px 0px 0px 0px",
+		},
+		textDiv: {
+			padding: "20px",
+			fontSize: "1.6rem",
+			fontWeight: "bold",
+			maxWidth: "800px",
+			overflow: "hidden",
+			color: "white"
+		},
+		text: {
+			wordWrap: "normal",
+			overflowWrap: "break-word",
+			whiteSpace: "pre-line"
 		}
 	}
 }

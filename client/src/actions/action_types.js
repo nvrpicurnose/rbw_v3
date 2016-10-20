@@ -21,6 +21,7 @@ export const DELETE_LANDLORD_PROPERTY = "DELETE_LANDLORD_PROPERTY"
 // Actions related to the tenant
 export const SET_TENANT = "SET_TENANT"
 export const SET_CITY = "SET_CITY"
+export const TOGGLE_ADVANCED_SEARCH = "TOGGLE_ADVANCED_SEARCH"
 
 
 // Actions related to the mapview and pins

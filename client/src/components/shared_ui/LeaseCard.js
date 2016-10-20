@@ -98,7 +98,7 @@ class LeaseCard extends Component {
 				<div style={comStyles().columnBox}>
 						<div ref='infoCol' className='col-md-8' style={comStyles().infoCol}>
 							<button className='btn btn-primary' style={comStyles().detailsHover} onMouseOver={()=>{this.props.triggerLeasePopup(this.props.lease)}} onMouseOut={this.exitPopupIfNoContact.bind(this)}>
-								<Glyphicon glyph="glyphicon glyphicon-info-sign" /> &nbsp;
+								<Glyphicon glyph="glyphicon glyphicon-home" /> &nbsp;
 								DETAILS
 							</button>
 							{this.renderRoomHovers(this.props.lease)}

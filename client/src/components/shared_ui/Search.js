@@ -4,17 +4,17 @@ import Radium from 'radium'
 import {Glyphicon} from 'react-bootstrap'
 
 import {xMidBlue} from '../../stylesJS/base_colors'
-import {filterStringSearch} from '../../actions/map_actions'
+import {filterStringSearch, toggleAdvancedSearch} from '../../actions/map_actions'
 
-import SearchAdvanced from './SearchAdvanced'
+import SearchAdvSublet from './SearchAdvSublet'
+import SearchAdvLease from './SearchAdvLease'
 
 class Search extends Component {
 
 	constructor(){
 		super()
 		this.state = {
-			searchString: "",
-			advancedToggle: false
+			searchString: ""
 		}
 	}
 
@@ -26,14 +26,14 @@ class Search extends Component {
 	}
 
 	triggerAdvanced(){
-		this.setState({
-			advancedToggle: !this.state.advancedToggle
-		})
+		this.props.toggleAdvancedSearch()
 	}
 
 	renderAdvancedSearch(){
-		if(this.state.advancedToggle){
-			return (<SearchAdvanced />)
+		if(this.props.advancedSearchToggle && this.props.viewMode == "sublet"){
+			return (<SearchAdvSublet />)
+		}else if(this.props.advancedSearchToggle && this.props.viewMode == 'lease'){
+			return (<SearchAdvLease />)
 		}
 	}
 
@@ -42,7 +42,7 @@ class Search extends Component {
 			<div style={comStyles().searchWidget}>
 				<div style={comStyles().searchBarDiv}>
 					<input className="form-control" type='text' value={this.state.searchString} onChange={this.handleSearch.bind(this)} style={comStyles().searchBar} placeholder="Search" />
-					<Glyphicon glyph="glyphicon glyphicon-th-list" onClick={this.triggerAdvanced.bind(this)} style={comStyles().advancedIcon} />
+					<Glyphicon glyph="glyphicon glyphicon-tasks" onClick={this.triggerAdvanced.bind(this)} style={comStyles().advancedIcon} />
 				</div>
 				<div style={comStyles().advancedSearchForm}>
 					{this.renderAdvancedSearch()}
@@ -53,18 +53,22 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-	listOfResults: React.PropTypes.array.isRequired
+	listOfResults: React.PropTypes.array.isRequired,
+	viewMode: React.PropTypes.string.isRequired,
+	advancedSearchToggle: React.PropTypes.bool
 };
 
 const RadiumHOC = Radium(Search);
 
 function mapStateToProps(state){
 	return {
-		listOfResults: state.content.listOfResults
+		listOfResults: state.content.listOfResults,
+		viewMode: state.content.viewMode,
+		advancedSearchToggle: state.content.advancedSearchToggle
 	}
 }
 
-export default connect(mapStateToProps, {filterStringSearch})(RadiumHOC);
+export default connect(mapStateToProps, {filterStringSearch, toggleAdvancedSearch})(RadiumHOC);
 
 // =======================
 

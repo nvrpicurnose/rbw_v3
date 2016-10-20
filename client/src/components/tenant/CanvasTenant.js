@@ -12,7 +12,7 @@ import { extractAndSaveFacebookPostsToDB, grabFBProfile } from '../../api/fbExtr
 import { getSubletsFromDB, getLeasesFromDB } from '../../api/databaseManager'
 
 import MapView from '../shared_ui/MapView'
-import Search from './Search'
+import Search from '../shared_ui/Search'
 import SearchResults from './SearchResults'
 import ViewModeBar from './ViewModeBar'
 import Popup from '../shared_ui/Popup'

@@ -4,21 +4,21 @@ import Radium from 'radium'
 
 import {xMidBlue} from '../../stylesJS/base_colors'
 
-class SearchAdvanced extends Component {
+class SearchAdvLease extends Component {
 
 	render() {
 		return (
 			<div style={comStyles().searchForm}>
-				Advanced Search
+				LEASE SEARCH
 			</div>
 		);
 	}
 }
 
-SearchAdvanced.propTypes = {
+SearchAdvLease.propTypes = {
 };
 
-const RadiumHOC = Radium(SearchAdvanced);
+const RadiumHOC = Radium(SearchAdvLease);
 
 export default connect()(RadiumHOC);
 

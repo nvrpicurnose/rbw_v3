@@ -5,6 +5,7 @@ import moment from 'moment'
 
 import {sortIconsSublet} from '../../api/iconSorter'
 import {panToMap} from '../../actions/map_actions'
+import {triggerSubletPopup, exitPopup} from '../../actions/popup_actions'
 
 import { xGreyText } from '../../stylesJS/base_colors'
 
@@ -13,6 +14,14 @@ class SubletCard extends Component {
 	shortenedAddress(){
 		const comma = this.props.sublet.address.indexOf(',')
 		return this.props.sublet.address.slice(0, comma)
+	}
+
+	viewSubletDetails(bool, sublet){
+		if(bool){
+			this.props.triggerSubletPopup(sublet)
+		}else{
+			this.props.exitPopup()
+		}
 	}
 
 	render() {
@@ -53,7 +62,7 @@ class SubletCard extends Component {
 				<div id='buttonsBar' style={comStyles().buttonsBar}>
 				{console.log(this.props.sublet.posturl)}
 					<a href={this.props.sublet.posturl} target='_blank' style={comStyles().seeOriginalAhref}>
-						<button className="btn btn-info" style={comStyles().seeOriginal}>See Original</button>
+						<button className="btn btn-info" style={comStyles().seeOriginal} onMouseOver={()=>this.viewSubletDetails(true, this.props.sublet)} onMouseOut={()=>this.viewSubletDetails(false)} >See Original</button>
 					</a>
 					<button className="btn btn-danger" onClick={()=>{this.props.panToMap(this.props.sublet)}} style={comStyles().map}>
 						<i className='ion-ios-location' style='font-size:1em;'></i> &nbsp;
@@ -71,7 +80,7 @@ SubletCard.propTypes = {
 
 const RadiumHOC = Radium(SubletCard);
 
-export default connect(null, {panToMap})(RadiumHOC);
+export default connect(null, {panToMap, triggerSubletPopup, exitPopup})(RadiumHOC);
 
 
 // ==============================

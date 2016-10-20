@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, STRING_FILTER, PAN_TO } from './action_types';
+import { DROP_PINS, SELECT_PINS, BACK_TO_PINS, SET_VIEWMODE, LOAD_FOR_VIEWMODE, STRING_FILTER, PAN_TO, TOGGLE_ADVANCED_SEARCH } from './action_types';
 
 const API_URL = 'http://localhost:3090';
 
@@ -73,6 +73,14 @@ export function panToMap(card){
 		dispatch({
 			type: PAN_TO,
 			payload: card
+		})
+	}
+}
+
+export function toggleAdvancedSearch(){
+	return function(dispatch){
+		dispatch({
+			type: TOGGLE_ADVANCED_SEARCH
 		})
 	}
 }
