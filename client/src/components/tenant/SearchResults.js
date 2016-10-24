@@ -81,7 +81,7 @@ const comStyles = () => {
 		scroll: {
 			overflowY: "scroll",
 			height: "90vh",
-			margin: "15px 0px 15px 0px"
+			margin: "5px 0px 15px 0px"
 		}
 	}
 }

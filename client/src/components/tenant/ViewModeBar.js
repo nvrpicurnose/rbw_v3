@@ -65,14 +65,14 @@ const comStyles = (viewMode) => {
 			position: "absolute",
 			width: "auto",
 			right: "20px",
-			top: "20px"
+			top: "20px",
 		},
 		sublet: {
 			backgroundColor: subletColor,
 			borderRadius: "0px",
 			width: "12%",
 			minWidth: "120px",
-			fontSize: "1.2rem",
+			fontSize: "1rem",
 			fontWeight: "bold",
 			color: "white",
 		},
@@ -81,13 +81,13 @@ const comStyles = (viewMode) => {
 			borderRadius: "0px",
 			width: "12%",
 			minWidth: "120px",
-			fontSize: "1.2rem",
+			fontSize: "1rem",
 			fontWeight: "bold",
 			color: "white",
 		},
 		icon: {
 			display:"inline-block",
-			height:"15px",
+			height:"17px",
 			width:"auto",
 		}
 	}

@@ -6,8 +6,8 @@ import {Glyphicon} from 'react-bootstrap'
 import {xMidBlue} from '../../stylesJS/base_colors'
 import {filterStringSearch, toggleAdvancedSearch} from '../../actions/map_actions'
 
-import SearchAdvSublet from './SearchAdvSublet'
-import SearchAdvLease from './SearchAdvLease'
+import SearchAdvSublet from '../tenant/SearchAdvSublet'
+import SearchAdvLease from '../landlord/SearchAdvLease'
 
 class Search extends Component {
 
@@ -81,7 +81,7 @@ const comStyles = () => {
 			display: "flex",
 			justifyContent: "flex-start",
 			flexDirection: "row",
-			marginBottom: "10px"
+			marginBottom: "5px"
 		},
 		searchBar: {
 			margin: "10px",

@@ -59,7 +59,7 @@ const iconStyle = {
 }
 
 const leaseText = {
-	fontSize: "1.3rem",
+	fontSize: "1.1rem",
 	display: "inline-block"
 }
 

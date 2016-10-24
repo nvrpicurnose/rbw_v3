@@ -82,7 +82,7 @@ export const comStyles = () => {
 			left: "15px"
 		},
 		exit: {
-			fontSize: "3rem",
+			fontSize: "2rem",
 			zIndex: "12",
 			color: "white",
 			position: "absolute",

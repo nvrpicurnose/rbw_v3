@@ -155,7 +155,7 @@ const comStyles = () => {
 			flexGrow: 3
 		},
 		building_name: {
-			fontSize:"2.1rem",
+			fontSize:"1.8rem",
 			fontWeight:"bold",
 			width: "100%",
 			height:"60%",
@@ -165,8 +165,9 @@ const comStyles = () => {
 			width: "100%",
 			height: "35%",
 			color: xGreyText,
-			fontSize: "1.5rem",
-			fontWeight: "bold"
+			fontSize: "1.2rem",
+			fontWeight: "bold",
+			margin: "10px 0px 0px 0px"
 		},
 		actionbar: {
 			display: "flex",
@@ -177,12 +178,12 @@ const comStyles = () => {
 		},
 		inquire: {
 			borderRadius: "0px",
-			fontSize: "1.5rem",
+			fontSize: "1.2rem",
 			fontWeight: "bold",
 		},
 		map: {
 			borderRadius: "0px",
-			fontSize: "1.5rem",
+			fontSize: "1.2rem",
 			fontWeight: "bold",
 		},
 		columnBox: {
@@ -203,7 +204,7 @@ const comStyles = () => {
 		},
 		detailsHover: {
 			width: "100%",
-			fontSize:"2.2rem",
+			fontSize:"1.3rem",
 			fontWeight:"bold",
 			padding: "10px",
 			color:"white",
@@ -221,12 +222,12 @@ const comStyles = () => {
 		},
 		roomHoverName: {
 			textAlign: "center",
-			fontSize: "1.8rem",
+			fontSize: "1.3rem",
 			fontWeight: "bold"
 		},
 		roomHoverPrice: {
 			textAlign: "center",
-			fontSize: "2rem",
+			fontSize: "1.5rem",
 			fontWeight: "bold"
 		}
 	}

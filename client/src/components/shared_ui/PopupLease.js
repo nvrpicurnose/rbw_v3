@@ -37,8 +37,8 @@ class PopupLease extends Component {
 		return (
 			<div style={comStyles().popupLease}>
 				<div className='col-md-12' style={comStyles().propertyTitle}>
-					<h1>{this.props.leaseForPopup.building_name}</h1>
-					<h3>{this.props.leaseForPopup.address}</h3>
+					<h1 style={comStyles().whiteText}>{this.props.leaseForPopup.building_name}</h1>
+					<h3 style={comStyles().whiteText}>{this.props.leaseForPopup.address}</h3>
 				</div>
 
 				<div className='col-md-12' style={comStyles().table}>
@@ -93,9 +93,11 @@ const comStyles = () => {
 			display: "inline-block"
 		},
 		propertyTitle: {
-			color:"white",
 			textAlign:"center",
 			marginTop:"15px",
+			color:"white",
+		},
+		whiteText: {
 			color: "white"
 		},
 		table: {
@@ -105,16 +107,16 @@ const comStyles = () => {
 		},
 		tableHead: {
 			textAlign:"center",
-			fontSize: "1.5rem",
+			fontSize: "1.2rem",
 			fontWeight:"bold",
 		},
 		roomRow: {
 			textAlign:"center",
-			fontSize: "1.2rem",
+			fontSize: "1rem",
 		},
 		promoRow: {
 			textAlign:"center",
-			fontSize: "1.2rem",
+			fontSize: "1rem",
 			color: xBootstrapRed
 		},
 		includes: {
@@ -122,13 +124,13 @@ const comStyles = () => {
 			textAlign: "center",
 			color: "white",
 			fontWeight: "bold",
-			fontSize: "1.4rem"
+			fontSize: "1.2rem"
 		},
 		iconbar: {
 			width: "100%",
 			display: "flex",
 			justifyContent: "center",
-			fontSize: "1.8rem",
+			fontSize: "1.2rem",
 			color: "white",
 			textAlign: "center"
 		},
@@ -137,7 +139,7 @@ const comStyles = () => {
 			padding: "10px",
 			textAlign: "center",
 			color: "white",
-			fontSize: "1.3rem"
+			fontSize: "1rem"
 		}
 	}
 }

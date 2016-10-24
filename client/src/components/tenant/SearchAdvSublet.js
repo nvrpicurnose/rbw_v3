@@ -2,22 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Radium from 'radium'
 
+import {nextSubletSearchState} from '../../actions/search_actions'
 import {xLightBlue, xMidBlue} from '../../stylesJS/base_colors'
 
 class SearchAdvSublet extends Component {
 
-	constructor(){
-		super()
-		this.state = {
-			priceFloor: 350,
-			priceCeiling: 750,
-			rooms: 1,
-			utils: false,
-			ensuite: false,
-			femaleOnly: false,
-			semester: null
-		}
-	}
+	/*
+		this.props.subletSearchParams = {
+				priceFloor: 350,
+				priceCeiling: 750,
+				rooms: 1,
+				utils: false,
+				ensuite: false,
+				femaleOnly: false,
+				semester: null
+			}
+	*/
 
 	componentDidMount(){
 		const now = new Date()
@@ -30,9 +30,15 @@ class SearchAdvSublet extends Component {
 		}else{
 			semester = "winter"
 		}
-		this.setState({
-			semester: semester
-		})
+		const nextFormState = this.props.subletSearchParams
+		nextFormState.semester = semester
+		this.props.nextSubletSearchState(nextFormState)
+	}
+
+	handleFormChange(paramName, event){
+		const nextFormState = this.props.subletSearchParams
+		nextFormState[paramName] = event.target.value
+		this.props.nextSubletSearchState(nextFormState)
 	}
 
 	render() {
@@ -41,17 +47,30 @@ class SearchAdvSublet extends Component {
 				<div style={comStyles().price}>
 					${}
 				</div>
+				<label className="toggle">
+				   <input type="checkbox" />
+				   <div className="track">
+				     <div className="handle"></div>
+				   </div>
+				</label>
 			</div>
 		);
 	}
 }
 
 SearchAdvSublet.propTypes = {
+	subletSearchParams: React.PropTypes.object.isRequired
 };
 
 const RadiumHOC = Radium(SearchAdvSublet);
 
-export default connect()(RadiumHOC);
+function mapStateToProps(state){
+	return {
+		subletSearchParams: state.searchForm.subletSearchParams
+	}
+}
+
+export default connect(mapStateToProps, {nextSubletSearchState})(RadiumHOC);
 
 // ==============================
 

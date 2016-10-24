@@ -98,7 +98,7 @@ const comStyles = () => {
 			display: "flex",
 			justifyContent: "center",
 			alignItems: "flex-start",
-			flexDirection: "row"
+			flexDirection: "row",
 		},
 		infobadge: {
 			display: "flex",
@@ -106,7 +106,7 @@ const comStyles = () => {
 			margin: "1% 1% 1% 3%",
 		},
 		address: {
-			fontSize:"2.2rem",
+			fontSize:"1.5rem",
 			fontWeight:"bold",
 			width: "100%",
 			height:"60%",
@@ -116,14 +116,15 @@ const comStyles = () => {
 			width: "100%",
 			height: "35%",
 			color: xGreyText,
-			fontSize: "1.5rem"
+			fontSize: "1.1rem",
+			margin: "5px 0px 0px 0px"
 		},
 		pricediv: {
 			textAlign:"center",
 			padding: "30px",
 		},
 		price: {
-			fontSize:"3rem",
+			fontSize:"2.5rem",
 			fontWeight:"bold",
 			color: xGreyText,
 		},
@@ -131,7 +132,7 @@ const comStyles = () => {
 			width: "100%",
 			display: "flex",
 			justifyContent: "center",
-			fontSize: "1.5rem",
+			fontSize: "1rem",
 			color: xGreyText,
 		},
 		buttonsBar: {
@@ -139,7 +140,7 @@ const comStyles = () => {
 			justifyContent: "center",
 			width: "100%",
 			margin: "auto",
-			fontSize: "1rem",
+			fontSize: "1.1rem",
 			fontWeight: "bold"
 		},
 		seeOriginalAhref: {

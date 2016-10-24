@@ -75,7 +75,7 @@ const comStyles = () => {
 		},
 		company: {
 			color: xGreyText,
-			fontSize: "1.5rem",
+			fontSize: "1.3rem",
 			fontWeight: "bold"
 		},
 		textarea: {

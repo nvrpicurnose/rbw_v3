@@ -46,3 +46,10 @@ export const CLEAR_IMAGE_POPUP = "CLEAR_IMAGE_POPUP"
 // Actions related to content to/from database
 export const GET_SUBLETS_FROM_DB = "GET_SUBLETS_FROM_DB"
 export const GET_LEASES_FROM_DB = "GET_LEASES_FROM_DB"
+
+
+// Actions related to sublet & lease advanced search
+export const SEARCH_SUBLET_RESULTS = "SEARCH_SUBLET_RESULTS"
+export const SEARCH_LEASE_RESULTS = "SEARCH_LEASE_RESULTS"
+export const SAVE_SUBLET_SEARCH_PARAMS = "SAVE_SUBLET_SEARCH_PARAMS"
+export const SAVE_LEASE_SEARCH_PARAMS = "SAVE_LEASE_SEARCH_PARAMS"

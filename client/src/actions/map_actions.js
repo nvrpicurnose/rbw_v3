@@ -58,7 +58,7 @@ export function filterStringSearch(searchString, listofResults){
 				return pin.building_name.toLowerCase().indexOf(searchString.toLowerCase()) >= 0 || pin.address.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
 			}else{
 				console.log("Searching for address")
-				return pin.address.indexOf(searchString) >= 0
+				return pin.address.toLowerCase().indexOf(searchString.toLowerCase()) >= 0
 			}
 		})
 		dispatch({

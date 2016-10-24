@@ -40,8 +40,7 @@ const comStyles = () => {
 		},
 		textDiv: {
 			padding: "20px",
-			fontSize: "1.6rem",
-			fontWeight: "bold",
+			fontSize: "1.2rem",
 			maxWidth: "800px",
 			overflow: "hidden",
 			color: "white"

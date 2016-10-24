@@ -34,7 +34,7 @@ const comStyles = () => {
 			height: "250px",
 			margin: "10px",
 			overflow: "hidden",
-			fontSize: "1.2rem",
+			fontSize: "1.1rem",
 			color: "white",
 			fontWeight: "bold",
 			textAlign: "center",
